@@ -12,6 +12,7 @@ import Login from './Pages/Login';
 import Register from './Pages/Register';
 import UpdateProfile from './Pages/UpdateProfile';
 import AuthProvider from './AuthProvider/AuthProvider';
+import EstateDetails from './Pages/EstateDetails';
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,12 @@ const router = createBrowserRouter([
     children:[
       {
         path:"/",
-        element:<Home></Home>
+        element:<Home></Home>,
+        loader: () => fetch('/Estates.json')
+      },
+      {
+        path: '/estates/:id',
+        element: <EstateDetails/>
       },
       {
         path:'/login',

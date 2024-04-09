@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "estate_title": "Luxurious Villa with Sea View",
+      "segment_name": "Luxury Homes",
+      "description": "A stunning villa overlooking the ocean, featuring modern amenities and exquisite design.",
+      "price": "$1,500,000",
+      "status": "sale",
+      "area": "4000 sq ft",
+      "location": "Malibu, California",
+      "facilities": ["Swimming Pool", "Jacuzzi", "Gym", "Home Theater"],
+      "image": "https://i.ibb.co/FbpkH1Q/pexels-binyamin-mellish-106399.jpg"
+    },
+    {
+      "id": 2,
+      "estate_title": "Cozy Downtown Apartment",
+      "segment_name": "City Apartments",
+      "description": "Charming apartment located in the heart of the city, perfect for urban living.",
+      "price": "$2,500/month",
+      "status": "rent",
+      "area": "800 sq ft",
+      "location": "Downtown, New York",
+      "facilities": ["Balcony", "Fitness Center", "Security", "Parking"],
+      "image": "https://i.ibb.co/Sy3K7tv/pexels-binyamin-mellish-1396132.jpg"
+    },
+    {
+      "id": 3,
+      "estate_title": "Spacious Family Home",
+      "segment_name": "Residential Houses",
+      "description": "A beautiful family home with ample space for relaxation and entertainment.",
+      "price": "$750,000",
+      "status": "sale",
+      "area": "3000 sq ft",
+      "location": "Suburbia, Texas",
+      "facilities": ["Backyard Garden", "Study Room", "Fireplace", "Garage"],
+      "image": "https://i.ibb.co/2ksMwDK/pexels-expect-best-323780.jpg"
+    },
+    {
+      "id": 4,
+      "estate_title": "Modern Loft with City Views",
+      "segment_name": "Loft Apartments",
+      "description": "Sleek and contemporary loft offering panoramic views of the city skyline.",
+      "price": "$800,000",
+      "status": "sale",
+      "area": "1500 sq ft",
+      "location": "Downtown, Los Angeles",
+      "facilities": ["Open Kitchen", "Roof Deck", "Exposed Brick", "Walk-in Closet"],
+      "image": "https://i.ibb.co/8gdq6XQ/pexels-pixabay-259588.jpg"
+    },
+    {
+      "id": 5,
+      "estate_title": "Secluded Mountain Retreat",
+      "segment_name": "Vacation Homes",
+      "description": "Escape to this peaceful mountain retreat, surrounded by nature and tranquility.",
+      "price": "$300/night",
+      "status": "rent",
+      "area": "2500 sq ft",
+      "location": "Aspen, Colorado",
+      "facilities": ["Hot Tub", "Hiking Trails", "Fire Pit", "Game Room"],
+      "image": "https://i.ibb.co/DC0tHnj/pexels-pixabay-280222.jpg"
+    },
+    {
+      "id": 6,
+      "estate_title": "Waterfront Condo with Marina Access",
+      "segment_name": "Condominiums",
+      "description": "Enjoy waterfront living with direct access to the marina and stunning sunset views.",
+      "price": "$1,200,000",
+      "status": "sale",
+      "area": "2000 sq ft",
+      "location": "Miami Beach, Florida",
+      "facilities": ["Private Beach", "Boat Slip", "Tennis Courts", "Spa"],
+      "image": "https://i.ibb.co/tmPyfYY/pexels-scott-webb-1029599.jpg"
+    }
+  ]
+  

@@ -1,9 +1,20 @@
-
+import Banner from "../Components/Banner";
+import { useLoaderData } from "react-router-dom";
+import EstatesCard from "../Components/EstatesCard";
 
 const Home = () => {
+
+    const estates = useLoaderData()
+    console.log(estates)
     return (
-        <div>
-            <h3>this is home</h3>
+        <div className="container mx-auto space-y-4">
+            <Banner className=""></Banner>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {
+                estates.map ( estate => <EstatesCard key={estate.id} estate={estate}></EstatesCard>)
+                }
+            </div>
         </div>
     );
 };
