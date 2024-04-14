@@ -1,12 +1,28 @@
 import { useContext } from "react";
 import { Link,useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { FaGithub, FaGoogle } from "react-icons/fa";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
 
 const Login = () => {
   const {signIn} = useContext(AuthContext)
   const location = useLocation()
   const navigate = useNavigate()
+  const auth = getAuth()
+
+  const googleProvider = new GoogleAuthProvider();
+  const handleGoogleSignIn = () =>{
+    signInWithPopup(auth, googleProvider)
+    .then(result => {
+      const user = result.user;
+      console.log(user)
+    })
+    .catch(error =>{
+      console.log('error', error.message)
+    })
+
+  }
 
   const handleLogin = e => {
     e.preventDefault()
@@ -55,6 +71,11 @@ const Login = () => {
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
+        </div>
+
+        <div className="flex gap-4">
+          <button onClick={handleGoogleSignIn}> <FaGoogle /></button>
+          <button> <FaGithub /></button>
         </div>
         <div>
             <p>Do not have an account? <Link className="text-primary" to="/register">Register</Link></p>

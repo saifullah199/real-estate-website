@@ -8,6 +8,7 @@ export const AuthContext = createContext(null)
 
 const AuthProvider = ({children}) => {
     const [user,setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
     
 
     // create user
@@ -33,6 +34,7 @@ const AuthProvider = ({children}) => {
         user,
         createUser,
         signIn,
+        loading,
         logOut
     }
     return (
