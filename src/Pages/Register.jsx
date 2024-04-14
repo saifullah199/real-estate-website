@@ -2,12 +2,14 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
+import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 
 
 const Register = () => {
 
   const [registerError, setRegisterError] = useState('')
 const [success, setSuccess] = useState('')
+const [showPassword, setShowPassword] = useState(false)
 
   const {createUser} = useContext(AuthContext)
   
@@ -21,8 +23,22 @@ const [success, setSuccess] = useState('')
     const password = form.get('password')
 
     console.log(name,photo, email,password)
+    if (password.length < 6){
+      setRegisterError('Password should be at least 6 characters or longer');
+      return;
+      
+    }
+    else if(!/[A-Z]/.test(password)){
+      setRegisterError('Your password should have at least one upper case characters.')
+      return
+    }
+    else if (!/[a-z]/.test(password)){
+      setRegisterError('your password should have at least one lowercase characters ')
+      return
+    }
 
     setRegisterError('')
+    setSuccess('')
 
     // create user
 
@@ -70,11 +86,20 @@ const [success, setSuccess] = useState('')
           </label>
           <input type="email" name="email" placeholder="email" className="input input-bordered" required />
         </div>
-        <div className="form-control">
+        <div className="form-control relative ">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+          <input  type= { showPassword ? "text" : "password"} 
+           name= "password" 
+          placeholder="password"  
+          className="input relative input-bordered"  required />
+          <span className=" absolute top-14 right-0" onClick={() => setShowPassword(!showPassword)}> 
+          
+           {
+            showPassword ? <FaEyeSlash /> : <FaRegEye />
+           }
+             </span>
           
         </div>
         <div className="form-control mt-6">

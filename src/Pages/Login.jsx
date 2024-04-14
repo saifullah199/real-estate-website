@@ -53,9 +53,11 @@ const Login = () => {
     signIn(email,password)
     .then(result => {
       console.log(result.user)
+      e.target.reset();
+      navigate('/');
 
       // navigate after login
-      navigate(location?.state ? location.state : '/')
+      // navigate(location?.state ? location.state : '/')
     })
     .catch( error => {
       console.error(error)
