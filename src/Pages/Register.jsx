@@ -1,10 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 
 
 const Register = () => {
+
+  const [registerError, setRegisterError] = useState('')
+const [success, setSuccess] = useState('')
 
   const {createUser} = useContext(AuthContext)
   
@@ -19,14 +22,18 @@ const Register = () => {
 
     console.log(name,photo, email,password)
 
+    setRegisterError('')
+
     // create user
 
     createUser(email,password)
     .then(result =>{
       console.log(result.user)
+      setSuccess('user successfully registered')
     })
     .catch(error => {
-      console.error(error)
+      console.error(error);
+      setRegisterError(error.message)
     })
 
   }
@@ -77,6 +84,14 @@ const Register = () => {
             <p>Already have an account? <Link className="text-primary" to="/login">Login</Link></p>
         </div>
       </form>
+
+      {
+        registerError && <p className="text-red-700"> {registerError} </p>
+      }
+
+      {
+        success && <p className="text-green-600"> {success} </p>
+      }
     </div>
   </div>
 </div>

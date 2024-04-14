@@ -2,26 +2,43 @@ import { useContext } from "react";
 import { Link,useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
 
 const Login = () => {
-  const {signIn} = useContext(AuthContext)
+  const {user, signIn} = useContext(AuthContext)
   const location = useLocation()
   const navigate = useNavigate()
   const auth = getAuth()
 
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider()
+
+
+
   const handleGoogleSignIn = () =>{
     signInWithPopup(auth, googleProvider)
     .then(result => {
-      const user = result.user;
-      console.log(user)
+      const loggedInUser = result.user;
+      console.log(loggedInUser)
+      
     })
     .catch(error =>{
       console.log('error', error.message)
     })
 
+  }
+
+
+  const handleGithubSignIn = () =>{
+    signInWithPopup(auth, githubProvider)
+    .then(result => {
+      const loggedInUser2 = result.user;
+      console.log(loggedInUser2)
+    })
+    .catch(error =>{
+      console.log('error', error.message)
+    })
   }
 
   const handleLogin = e => {
@@ -75,8 +92,9 @@ const Login = () => {
 
         <div className="flex gap-4">
           <button onClick={handleGoogleSignIn}> <FaGoogle /></button>
-          <button> <FaGithub /></button>
+          <button onClick={handleGithubSignIn}> <FaGithub /></button>
         </div>
+        
         <div>
             <p>Do not have an account? <Link className="text-primary" to="/register">Register</Link></p>
         </div>
