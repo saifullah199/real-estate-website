@@ -46,7 +46,7 @@ const Navbar = () => {
       <div className="flex">
         <Link to='/userprofile'> <FaUser /> </Link>
         
-        <button onClick={handleSignOut} className="btn">Sign Out</button>
+        <button onClick={handleSignOut} className="btn"> Sign Out </button>
       </div>
       :
       <Link to='/login'>

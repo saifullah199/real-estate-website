@@ -1,9 +1,10 @@
+import MySwiper from "./MySwiper";
 
 
 const Banner = () => {
     return (
         <div className="">
-            <div className="carousel w-full h-[600px]  rounded-2xl">
+            <div data-aos="zoom-in" data-aos-duration="1000" className="carousel w-full h-[600px]  rounded-2xl">
   <div id="slide1" className="carousel-item relative w-full">
     <img src="https://i.ibb.co/tmPyfYY/pexels-scott-webb-1029599.jpg" className="w-full" />
     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -33,6 +34,7 @@ const Banner = () => {
     </div>
   </div>
 </div>
+<MySwiper />
         </div>
     );
 };
