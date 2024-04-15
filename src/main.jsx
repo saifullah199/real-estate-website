@@ -14,6 +14,8 @@ import UpdateProfile from './Pages/UpdateProfile';
 import AuthProvider from './AuthProvider/AuthProvider';
 import EstateDetails from './Pages/EstateDetails';
 import PrivateRoute from './Routes/PrivateRoute';
+import UserProfile from './Pages/UserProfile';
+import ContactUs from './Pages/ContactUs';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
       {
         path:'/profile',
         element: <PrivateRoute> <UpdateProfile/> </PrivateRoute>
+      },
+      {
+        path: '/userprofile',
+        element: <UserProfile/>,
+      },
+      {
+        path: '/contact',
+        element: <PrivateRoute> <ContactUs/> </PrivateRoute>
       }
     ]
   },

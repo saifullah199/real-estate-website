@@ -1,9 +1,15 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { getAuth, updateProfile } from "firebase/auth";
 
 
 const UpdateProfile = () => {
     const {user} = useContext(AuthContext)
+
+    
+          
+   
+    
 
     return (
         <div>

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { FaUser } from "react-icons/fa";
 
 
 const Navbar = () => {
@@ -18,6 +19,7 @@ const Navbar = () => {
         <li><NavLink to='/login'>Login</NavLink></li>
         <li><NavLink to='/register'>Register</NavLink></li>
         <li><NavLink to='/profile'>Update Profile</NavLink></li>
+        <li><NavLink to='/contact'>Contact Us</NavLink></li>
     </>
     return (
         <div>
@@ -42,7 +44,8 @@ const Navbar = () => {
     {
       user ?
       <div className="flex">
-        <h3> User: {user.email}</h3>
+        <Link to='/userprofile'> <FaUser /> </Link>
+        
         <button onClick={handleSignOut} className="btn">Sign Out</button>
       </div>
       :
