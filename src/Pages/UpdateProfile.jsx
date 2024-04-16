@@ -1,14 +1,46 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
-
+import { getAuth, updateProfile } from "firebase/auth";
+import toast, { Toaster } from "react-hot-toast";
+const auth = getAuth();
 const UpdateProfile = () => {
     const {user} = useContext(AuthContext)
-
-    
+    const [displayName, setDisplayName] = useState(user.displayName);
+    const [photoURL, setPhotoURL] = useState(user.photoURL);
+    const [email, setEmail] = useState(user.email);
+    const notify = () => toast('Your profile updated successfully')
+    useEffect(() => {
+      
+      updateProfile(auth.currentUser, {
+        displayName,
+        photoURL,
+        email,
+      })
+        .then(() => {
+          console.log("Profile updated successfully");
+        })
+        .catch((error) => {
+          console.log("Oops! Profile is not updated:", error.message);
+        });
+    }, []);
           
-   
+    const handleUpdate = (e) => {
+      e.preventDefault();
+      
+      updateProfile(auth.currentUser, {
+        displayName,
+        photoURL,
+        email,
+      })
+        .then(() => {
+          console.log("Profile updated successfully");
+        })
+        .catch((error) => {
+          console.log("Oops! Profile is not updated:", error.message);
+        });
+    };
     
 
     return (
@@ -20,7 +52,7 @@ const UpdateProfile = () => {
        
     </div>
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form className="card-body">
+      <form onSubmit={handleUpdate} className="card-body">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Name </span>
@@ -28,7 +60,8 @@ const UpdateProfile = () => {
           <input type="text" 
           placeholder="name"
            name="name" 
-           value={user.displayName}
+           value={displayName}
+            onChange={(e) => setDisplayName(e.target.value)}
            className="input input-bordered"  />
         </div>
         <div className="form-control">
@@ -37,17 +70,31 @@ const UpdateProfile = () => {
           </label>
           <input type="text"
             placeholder="photoURL"
-            value={user.photoURL}
+            value={photoURL}
+            onChange={(e) => setPhotoURL(e.target.value)}
+            className="input input-bordered" />
+          
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Email  </span>
+          </label>
+          <input type="email"
+            placeholder="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="input input-bordered" />
           
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Update </button>
+          <button onClick={notify} type="submit" className="btn btn-primary">Update </button>
         </div>
       </form>
     </div>
   </div>
 </div>
+<Toaster />
         </div>
     );
 };

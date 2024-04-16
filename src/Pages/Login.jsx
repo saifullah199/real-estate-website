@@ -3,10 +3,11 @@ import { Link,useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { Toaster } from "react-hot-toast";
 
 
 const Login = () => {
-  const {user, signIn} = useContext(AuthContext)
+  const {user, signIn, notify} = useContext(AuthContext)
   const location = useLocation()
   const navigate = useNavigate()
   const auth = getAuth()
@@ -91,7 +92,7 @@ const Login = () => {
           
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+          <button onClick={notify} className="btn btn-primary">Login</button>
         </div>
 
         <div className="flex gap-4">
@@ -106,6 +107,7 @@ const Login = () => {
     </div>
   </div>
 </div>
+<Toaster className="text-green-400"></Toaster>
         </div>
     );
 };

@@ -14,11 +14,13 @@ const EstateDetails = () => {
     return (
         <div>
 
-           <div className="card  bg-base-100 shadow-xl">
-  <figure><img className="rounded-2xl" src= {house.image} alt="Album"/></figure>
-  <div className="card-body">
+           <div data-aos="zoom-in" data-aos-duration="1000" className="card relative  bg-base-100 shadow-xl">
+  <figure className="relative">
+    <img className="rounded-2xl" src= {house.image} alt="Album"/>
+    </figure>
+  <div className="card-body absolute top-72 right-10 text-black">
     <h2 className="card-title text-3xl font-bold"> {house.estate_title} </h2>
-    <div className="text-2xl ">
+    <div className="text-2xl font-medium">
         <p> Price: {house.price} </p>
         <p>Status: {house.status}</p>
         <p>Segment Name: {house.segment_name}</p>

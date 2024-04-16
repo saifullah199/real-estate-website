@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase.config";
+import toast from "react-hot-toast";
 
 export const AuthContext = createContext(null)
 
@@ -27,6 +28,8 @@ const AuthProvider = ({children}) => {
         return signOut(auth)
     }
 
+    const notify = () => toast('You are successfully logged in');
+
     useEffect(()=>{
         onAuthStateChanged(auth, currentUser =>{
             console.log('user in the auth state changed', currentUser)
@@ -39,7 +42,8 @@ const AuthProvider = ({children}) => {
         createUser,
         signIn,
         loading,
-        logOut
+        logOut,
+        notify
     }
     return (
         <AuthContext.Provider value={authInfo}>

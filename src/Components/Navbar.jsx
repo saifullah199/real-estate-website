@@ -33,7 +33,7 @@ const Navbar = () => {
         {navlinks}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">Florida Cash Buyers</a>
+    <a className="btn btn-outline btn-primary text-xl">Florida Cash Buyers</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
