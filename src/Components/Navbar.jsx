@@ -44,13 +44,18 @@ const Navbar = () => {
     {
       user ?
       <div className="flex">
-        <Link to='/userprofile'> <FaUser /> </Link>
+        {/* <Link to='/userprofile'> <FaUser /> </Link> */}
+        <Link to='/userprofile'>
+           <img className="w-[50px] rounded-full" 
+              src={user?.photoURL} alt="" /> 
+        </Link>
         
-        <button onClick={handleSignOut} className="btn"> Sign Out </button>
+        
+        <button onClick={handleSignOut} className="btn btn-outline btn-secondary"> Sign Out </button>
       </div>
       :
       <Link to='/login'>
-         <button className="btn"> Login</button>
+         <button className="btn btn-outline btn-success"> Login</button>
       </Link>
     }
 

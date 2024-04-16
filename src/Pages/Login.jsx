@@ -21,6 +21,7 @@ const Login = () => {
     .then(result => {
       const loggedInUser = result.user;
       console.log(loggedInUser)
+      navigate('/');
       
     })
     .catch(error =>{
@@ -35,6 +36,7 @@ const Login = () => {
     .then(result => {
       const loggedInUser2 = result.user;
       console.log(loggedInUser2)
+      navigate('/');
     })
     .catch(error =>{
       console.log('error', error.message)
